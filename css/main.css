@@ -19,7 +19,7 @@
 
 .timer {
 	position:absolute;
-    top:42%;
+    top:35%;
 }
 
 .age {
@@ -79,6 +79,14 @@ tr {
 	font-size: 62px;
 	font-weight: 800;
 }
+.ageAge {
+	font-size: 100px;
+}
+
+
+.green {
+	color: darkgreen;
+}
 
 label {
 	color:crimson;
@@ -98,10 +106,26 @@ input:-moz-placeholder {
 }
 
 @media only screen and (min-width: 200px) and (max-width: 427px){
-    label {font-size: 50px;}
+    label {
+    	font-size: 50px;
+    }
 }
 
-.ageAge {
-	font-size: 100px;
+@media only screen and (min-width: 200px) and (max-width: 505px){  
+    .ageAge{
+    	font-size: 60px;
+    }
+    .ageSeconds {
+    	font-size: 40px;
+    }
+
 }
+
+
+these are the few i found in no particular order,
+for greater speed, compromise on smaller ssd storage then a large hard drive
+ASUS ZENBOOK UX305
+Lenovo Flex 15
+Lenovo Y510p 
+Lenovo Y40-80
 

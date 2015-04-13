@@ -263,13 +263,17 @@ var driver = {
 
 	start: function(birth_day, country){
 		if(birth_day && country){
+			age = driver.getAgeByCountry(country);
 			setInterval(function(){
-				age = driver.getAgeByCountry(country);
-				var birthday = moment(local.getBirthDay());
-				var deathday = birthday.clone();
-				deathday.add(age,'years');
-				var years = deathday.diff(moment().add(1,'years'),'years');
+				var birth_day = moment(birth_day);
+				var death_day = birth_day.clone().add(age,'years');
+				var years = death_day.diff(moment().add(1,'years'),'years');
 				var seconds_left_in_this_year = moment().endOf('year').diff(moment());
+				if(years <= -1) {
+					if(!$('.age').hasClass('green')) $('.age').addClass('green');
+					years = Math.abs(years);
+					seconds_left_in_this_year = moment().valueOf()
+				}
 				$('.ageAge').text(years);
 				$('.ageSeconds').text(seconds_left_in_this_year)
 			}, 100);
