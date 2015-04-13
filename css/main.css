@@ -19,14 +19,25 @@
 
 .timer {
 	position:absolute;
-    top:35%;
+    bottom:0%;
 }
 
+td {
+	border-top: none !important;
+}
+
+.years {
+	vertical-align: bottom !important;
+	font-size:38px !important;
+}
 .age {
+	max-width: 400px;
 	font-size: 50px;
 	color: crimson;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 800;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #datetimepicker1 {
@@ -80,7 +91,7 @@ tr {
 	font-weight: 800;
 }
 .ageAge {
-	font-size: 100px;
+	font-size: 130px;
 }
 
 
@@ -111,12 +122,16 @@ input:-moz-placeholder {
     }
 }
 
-@media only screen and (min-width: 200px) and (max-width: 505px){  
+@media only screen and (min-width: 200px) and (max-width: 600px){  
     .ageAge{
-    	font-size: 60px;
+    	vertical-align: bottom!important;
+    	font-size: 100px!important;
     }
     .ageSeconds {
-    	font-size: 40px;
+    	font-size: 30px!important;
+    }
+    .years{
+    	visibility:hidden;
     }
 
 }
