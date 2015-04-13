@@ -1,0 +1,107 @@
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(../fonts/bb.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+
+#main {
+	text-align: center;
+}
+.main {
+	position:absolute;
+    top:35%;
+}
+
+.timer {
+	position:absolute;
+    top:42%;
+}
+
+.age {
+	font-size: 50px;
+	color: crimson;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+}
+
+#datetimepicker1 {
+	height: 30px;
+	font-family: 'Montserrat', sans-serif;
+	color:crimson;
+}
+
+input[type="text"] {
+	height: 56px;
+	text-align: center;
+	font-size: 25;
+	color:crimson;
+	border-color: crimson;
+}
+
+#country{
+	height: 56px;
+	text-align: center;
+	font-size: 25;
+	color:crimson;
+	border-color: crimson;
+}
+
+.service-small {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+}
+
+.input-group-addon {
+	background-color: crimson;
+	color:white;
+}
+
+.dropdown-menu
+{
+	width: 340px!important;
+}
+
+th {
+	color:crimson;
+}
+
+tr {
+	color:crimson;
+}
+
+#lcountry {
+	color:crimson;
+	font-size: 62px;
+	font-weight: 800;
+}
+
+label {
+	color:crimson;
+	font-size: 62px;
+	font-weight: 800;
+}
+
+input::-webkit-input-placeholder{
+    color:crimson!important;
+}
+input:-moz-placeholder {
+    color:crimson!important;
+}
+
+@media only screen and (min-width: 766px) and (max-width: 850px) {
+    label {font-size: 50px;}
+}
+
+@media only screen and (min-width: 200px) and (max-width: 427px){
+    label {font-size: 50px;}
+}
+
+.ageAge {
+	font-size: 100px;
+}
+
