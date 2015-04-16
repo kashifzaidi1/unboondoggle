@@ -17,9 +17,19 @@
     top:35%;
 }
 
+.todo {
+	position:absolute;
+    top:20%;
+}
+
+.todoView {
+	position:absolute;
+    top:20%;
+}
+
 .timer {
 	position:absolute;
-    bottom:0%;
+    bottom:5%;
 }
 
 td {
@@ -33,7 +43,7 @@ td {
 .age {
 	max-width: 400px;
 	font-size: 50px;
-	color: crimson;
+	color: rgba(237, 20, 61, 0.66);
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 800;
 	margin-left: auto;
@@ -43,23 +53,29 @@ td {
 #datetimepicker1 {
 	height: 30px;
 	font-family: 'Montserrat', sans-serif;
-	color:crimson;
+	color:rgba(237, 20, 61, 0.66);
+}
+
+.add_todo, .add_todo:hover{
+	font-family: 'Montserrat', sans-serif;
+	color:rgba(237, 20, 61, 0.66);
+	font-size: 15;
 }
 
 input[type="text"] {
 	height: 56px;
 	text-align: center;
 	font-size: 25;
-	color:crimson;
-	border-color: crimson;
+	color:rgba(237, 20, 61, 0.66);
+	border-color: rgba(237, 20, 61, 0.66);
 }
 
 #country{
 	height: 56px;
 	text-align: center;
 	font-size: 25;
-	color:crimson;
-	border-color: crimson;
+	color:rgba(237, 20, 61, 0.66);
+	border-color: rgba(237, 20, 61, 0.66);
 }
 
 .service-small {
@@ -68,7 +84,7 @@ input[type="text"] {
 }
 
 .input-group-addon {
-	background-color: crimson;
+	background-color: rgba(237, 20, 61, 0.66);
 	color:white;
 }
 
@@ -78,15 +94,15 @@ input[type="text"] {
 }
 
 th {
-	color:crimson;
+	color:rgba(237, 20, 61, 0.66);
 }
 
 tr {
-	color:crimson;
+	color:rgba(237, 20, 61, 0.66);
 }
 
 #lcountry {
-	color:crimson;
+	color:rgba(237, 20, 61, 0.66);
 	font-size: 62px;
 	font-weight: 800;
 }
@@ -100,16 +116,16 @@ tr {
 }
 
 label {
-	color:crimson;
+	color:rgba(237, 20, 61, 0.66);
 	font-size: 62px;
 	font-weight: 800;
 }
 
 input::-webkit-input-placeholder{
-    color:crimson!important;
+    color:rgba(237, 20, 61, 0.34)!important;
 }
 input:-moz-placeholder {
-    color:crimson!important;
+    color:rgba(237, 20, 61, 0.34)!important;
 }
 
 @media only screen and (min-width: 766px) and (max-width: 850px) {
@@ -120,6 +136,16 @@ input:-moz-placeholder {
     label {
     	font-size: 50px;
     }
+}
+
+@media only screen and (min-height: 100px) and (max-height: 410px){
+    .todo {
+    	display:none;
+    }
+
+	.todoView {
+		display:none;
+	}
 }
 
 @media only screen and (min-width: 200px) and (max-width: 600px){  
@@ -136,4 +162,14 @@ input:-moz-placeholder {
 
 }
 
+.bigger{
+	font-size: 40px!important;
+}
 
+.bucketlistbox > input, .bucketlistbox > span{
+	border-radius: 20px;
+}
+
+.curves > input, .curves > span{
+	border-radius: 10px;
+}

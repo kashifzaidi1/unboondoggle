@@ -230,6 +230,33 @@ var data = {
 };
 
 var local = {
+	addTodo : function(text){
+		if(typeof localStorage.todos == "undefined")
+			localStorage.todos = JSON.stringify([]);
+		
+		var todos = JSON.parse(localStorage.todos);
+		
+		todos.push({
+			text : text,
+			completed: false
+		});
+
+		localStorage.todos = JSON.stringify(todos);
+		return true;
+
+	},
+
+	getRandomTodo : function(){
+		if(typeof localStorage.todos == 'undefined') return false;
+		var todos = JSON.parse(localStorage.todos);
+		if(todos.length == 0) return false;
+		var max = todos.length-1;
+		var random = Math.floor(Math.random()*(max-0+1)+0);
+
+		todos[random].id = random;
+		return todos[random];
+	},
+
 	getBirthDay : function(){
 		return (typeof localStorage.birth_day !== "undefined")? localStorage.birth_day : false;
 	},
@@ -246,6 +273,32 @@ var local = {
 
 var age = null;
 var driver = {
+
+	removeTodo : function(index){
+		var todos = JSON.parse(localStorage.todos);
+		todos.splice(index, 1);
+		localStorage.todos = JSON.stringify(todos);
+		return true;
+	},
+
+	loadRandomTodo : function(){
+		
+		var todoAvailable = local.getRandomTodo();
+		if(todoAvailable) {
+			$('.todo').fadeOut();
+			$('.todoView').fadeIn();
+			$('#bucketlistView').val(todoAvailable.text);
+			$('#bucketlistView').attr('random_id',todoAvailable.id);
+			return true;
+		} else return false;
+	},
+
+	addToBucketList : function(text){
+		local.addTodo(text);
+		$('#bucketlist').val('');
+		driver.loadRandomTodo();
+
+	},
 
 	getAgeByCountry : function(country){
 		return typeof data[country] !== "undefined" ? data[country] : false;
@@ -277,6 +330,9 @@ var driver = {
 				$('.ageAge').text(years);
 				$('.ageSeconds').text(seconds_left_in_this_year)
 			}, 100);
+			if(!driver.loadRandomTodo()){
+				$('.todo').fadeIn();
+			}
 		}
 	}
 };
@@ -303,8 +359,47 @@ $(document).ready(function () {
     	return false;
     });
 
-    $("#country").on('change',function(){
+    $('#country').on('change',function(){
     	local.setCountry($(this).val());
     	driver.init();
+    	$('.todo').fadeIn();
+    });
+
+    $('.bucketlistbox > span').on('click', function(){
+    	if($('#bucketlist').val().trim() != '') {
+    		driver.addToBucketList($('#bucketlist').val().trim());
+    	}
+    });
+
+    $('#bucketlist').on('keypress', function(event){
+    	if(event.charCode === 13 && $(this).val().trim() != ''){
+    		driver.addToBucketList($(this).val().trim());
+    	}
+    });
+
+    $('.add_todo').on('click', function(event){
+    	event.preventDefault();
+    	$('.todoView').fadeOut();
+    	$('.todo').fadeIn();
+    	return false;
+    });
+
+    $('.curves > .delete').on('click', function(){
+    	
+    	driver.removeTodo(parseInt($('#bucketlistView').attr('random_id')));
+    	
+    	if(!driver.loadRandomTodo()){
+    		$('.todoView').fadeOut();
+    		$('.todo').fadeIn();
+    	}
+    });
+
+    $('.curves > .refresh').on('click', function(){
+    	
+    	
+    	if(!driver.loadRandomTodo()){
+    		$('.todoView').fadeOut();
+    		$('.todo').fadeIn();
+    	}
     });
 });
