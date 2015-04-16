@@ -1,0 +1,14 @@
+{
+  "name": "unBondoogle",
+  "description": "fun little procrastination killer",
+  "version": "0.2",
+  "incognito": "split",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons":{ "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+  },
+  "manifest_version": 2
+}
